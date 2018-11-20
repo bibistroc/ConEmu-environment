@@ -41,6 +41,8 @@ if (-not (Test-Path -Path $PROFILE )) {
 }
 
 # adding HonukaiAlt theme
+Import-Module posh-git
+Import-Module oh-my-posh
 $ohMyPoshModulePath = (Get-Item (Get-Module -name oh-my-posh).Path).Directory.FullName
 $themeFileName = "$ohMyPoshModulePath/Themes/HonokaiAlt.psm1"
 Invoke-WebRequest -Uri $urlOfTheme -OutFile $themeFileName
