@@ -1,15 +1,15 @@
-# ConEmu-environment
+# Draft
 
-```
+```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
-```
+```powershell
 choco install git.install --params "/GitAndUnixToolsOnPath /NoAutoCrlf"
 choco install conemu
 ```
 
-```
+```powershell
 iex (new-object net.webclient).downloadstring('http://bit.ly/PowEnvBi')
 ```
 
