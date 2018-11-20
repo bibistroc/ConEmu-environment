@@ -5,7 +5,7 @@ This is the theme and modules that I use for my every day task that involves win
 
 ## Preview
 
-// todo
+![demo](https://raw.githubusercontent.com/bibistroc/ConEmu-environment/master/assets/demo.gif)
 
 ## Prerequisites
 1. [ConEmu](https://conemu.github.io/)
@@ -34,6 +34,7 @@ iex (new-object net.webclient).downloadstring('http://bit.ly/PowEnvBi')
 ```
 
 ## ConEmu additional configuration
+In order to view the special characters in console, you need to download the following font: [Meslo LG M Regular](https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf) ([Mirror](https://github.com/bibistroc/ConEmu-environment/blob/master/assets/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf)).
+After installing the font on local system, you must select the fond inside ConEmu.
 // todo
 
-https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf
