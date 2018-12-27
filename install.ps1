@@ -20,14 +20,19 @@ if((Get-ExecutionPolicy) -gt 'RemoteSigned' -or (Get-ExecutionPolicy) -eq 'ByPas
 # checking for required powershell modules
 Write-Host "Checking for required powershell modules"
 if (-not (Get-Module -name posh-git)) {
-    Install-Module posh-git -Scope CurrentUser
+    Install-Module posh-git -Scope CurrentUser -Force -SkipPublisherCheck
 } else {
     Write-Host "posh-git module is installed"
 }
 if (-not (Get-Module -name oh-my-posh)) {
-    Install-Module oh-my-posh -Scope CurrentUser
+    Install-Module oh-my-posh -Scope CurrentUser -Force -SkipPublisherCheck
 } else {
     Write-Host "oh-my-posh module is installed"
+}
+if (-not (Get-Module -name posh-docker)) {
+    Install-Module posh-docker -Scope CurrentUser -Force -SkipPublisherCheck
+} else {
+    Write-Host "posh-docker module is installed"
 }
 
 # check for psreadline module (optional)
@@ -38,6 +43,12 @@ if (-not (Get-Command "Set-PSReadlineKeyHandler" -errorAction SilentlyContinue))
 # checking for powershell profile file and create it if needed
 if (-not (Test-Path -Path $PROFILE )) {
     New-Item -Type File -Path $PROFILE -Force
+} else {
+    Write-Host "Powershell profile found."
+    $delProfile = Read-Host -Prompt 'Do you want to replace it? [Y/n]'
+    if ($delProfile -eq 'y' -or $delProfile -eq 'Y') {
+        Rename-Item -Path $PROFILE -NewName "$PROFILE.bak" -Force
+    }
 }
 
 # adding HonukaiAlt theme
@@ -52,6 +63,12 @@ Invoke-WebRequest -Uri $urlOfTheme -OutFile $themeFileName
 Add-Content -Path $PROFILE -Value ""
 Add-Content -Path $PROFILE -Value "Import-Module posh-git"
 Add-Content -Path $PROFILE -Value "Import-Module oh-my-posh"
+Add-Content -Path $PROFILE -Value "Import-Module posh-docker"
+Add-Content -Path $PROFILE -Value "Set-PSReadlineKeyHandler -Key Tab -Function Complete"
 Add-Content -Path $PROFILE -Value "Set-Theme HonokaiAlt"
 
 Write-Host "Please restart your shell to see the changes"
+
+. $PROFILE
+
+Clear-Host

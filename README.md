@@ -27,14 +27,13 @@ choco install conemu
 ```
 
 ## Install theme & modules
-You can inspect the code that is executed here: [http://bit.ly/PowEnvBi](http://bit.ly/PowEnvBi). To install what is needed, run the following command into powershell
+You can inspect the code that is executed here: [https://r.gbarbu.eu/ps](https://r.gbarbu.eu/ps). To install what is needed, run the following command into powershell
 
 ```powershell
-iex (new-object net.webclient).downloadstring('http://bit.ly/PowEnvBi')
+iex (new-object net.webclient).downloadstring('https://r.gbarbu.eu/ps')
 ```
 
 ## ConEmu additional configuration
 In order to view the special characters in console, you need to download the following font: [Meslo LG M Regular](https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf) ([Mirror](https://github.com/bibistroc/ConEmu-environment/blob/master/assets/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf)).
 After installing the font on local system, you must select the fond inside ConEmu.
-// todo
 
