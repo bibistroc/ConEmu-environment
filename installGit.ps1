@@ -43,5 +43,3 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
             [System.Environment]::GetEnvironmentVariable("Path","User")
 
 Write-Host "Script finished. You can start using git."
-Write-Host "Press any key to exit"
-$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

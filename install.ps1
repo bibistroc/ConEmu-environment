@@ -5,7 +5,7 @@ $urlOfTheme = "https://raw.githubusercontent.com/bibistroc/ConEmu-environment/ma
 if(($PSVersionTable.PSVersion.Major) -lt 3) {
     Write-Output "PowerShell 3 or greater is required to use this profile."
     Write-Output "Upgrade PowerShell: https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell"
-    exit
+    break
 }
 
 
@@ -14,13 +14,13 @@ if((Get-ExecutionPolicy) -gt 'RemoteSigned' -or (Get-ExecutionPolicy) -eq 'ByPas
     Write-Output "PowerShell requires an execution policy of 'RemoteSigned' to configure this profile."
     Write-Output "To make this change please run:"
     Write-Output "'Set-ExecutionPolicy RemoteSigned -scope CurrentUser'"
-    exit
+    break
 }
 
 function Show-Exit {
     Write-Host "Press any key to exit..."
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-    exit
+    break
 }
 
 function Install-Conemu {
@@ -55,8 +55,7 @@ function Install-Git {
         Write-Host "Starting installing"
         Start-Process powershell `
             -ArgumentList "-Command iwr r.gbarbu.eu/installgit -UseBasicParsing | iex" `
-            -Wait `
-            -Verb RunAs
+            -Wait
 
         Write-Host "Git installed"
 
